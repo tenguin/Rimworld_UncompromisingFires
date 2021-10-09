@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>[Fuu] Uncompromising Fires</name>
+	<author>Fuu Chan</author>
+	<packageId>Fuu.UncompromisingFires</packageId>
+	<description>
+The goal of this mod is to make fires more interesting and dynamic!
+
+For indoor fires, fires will grow and spread 3x faster (value adjustable in the options), which makes designing a base capable of containing indoor fires (such as with fire breaks, fire proof materials, and fire extinguishing tools) a more important consideration.
+
+For outdoor fires, fire growth and spread will scale depending on a new value called "Map dryness".
+
+Right after rainfall fire growth and spread on outdoor objects will drop to 0%, making fires unable to grow or spread.
+But over time and highly dependent on the map's current temperature, that number will scale back up.
+
+Because the rate at which the map dries depends on the temperature, summer will reclaim its throne as "fire season", while winter gives a short time to relax.
+Watch the world come alive, as the seasons and rain directly influence the outdoor fire risk!
+
+Jungle and swamp biomes will behave more realistically, no longer igniting into massive forest fires due to their high rainfall.
+While boreal, tundra, and the ice caps will behave more realistically too, where the low temperature means the wetness stays high despite low rainfall.
+But watch out if it's a scorching hot desert during a heat wave! (Rate of drying adjustable in the options)
+
+Compatibility:
+While this mod may seem complicated, it actually only needs to modify two values from the vanilla game; Fire growth per tick and Ticks until next fire spread. All the other calculations are isolated from the game code and only relies on vanilla stats like current temperature and rainfall, so it should have excellent compatibility and will leave no permanent changes to your game state (Can be safely added and removed mid-game).
+
+*Optimized for performance.
+*Safe to add mid-game.
+*Safe to remove mid-game (One-time error message is harmless).
+*NOT Compatible with CE. They change fires to scale based on their own "wind speed and direction" system.
+*No other known conflicts.
+
+Credits to: Walfieee, _LM7_, Amelia Watson, and unknown artist for the artwork used in the thumbnail! Give them a visit!
+  </description>
+	<supportedVersions>
+      <li>1.3</li>
+  </supportedVersions>
+  <modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+	</modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>brrainz.harmony</li>
+  </loadAfter>	
+</ModMetaData>

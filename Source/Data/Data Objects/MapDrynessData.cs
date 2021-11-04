@@ -6,12 +6,13 @@ using Verse;
 namespace UncompromisingFires
 {
     //Stores the dryness data for a map
-    public class MapDrynessData : IExposable
+    internal class MapDrynessData : IExposable
     {
         private Map Map;
         private float mapDryness = 0f;
         private List<int> daysBetweenEachRainfall = new List<int> { };
         public int TickOfLastRain = 0;
+        public float DrynessPerDayAtTemp = 0f;
         public float MapDryness
         {
             get => mapDryness;
@@ -29,12 +30,18 @@ namespace UncompromisingFires
         {
             Map = map;
             TickOfLastRain = Find.TickManager.TicksGame;
+
             float averageTemperature = GenTemperature.AverageTemperatureAtTileForTwelfth(map.Tile, GenLocalDate.Twelfth(map));
             float flammability = DrynessConstants.InitialDrynessFromTemperature.Evaluate(averageTemperature);
             float cappedFlammability = Mathf.Min(flammability, DrynessConstants.drynessCapFromRainfall.Evaluate(map.TileInfo.rainfall));
             float overCap = (flammability - cappedFlammability) * DrynessConstants.overcapMultiplier;
             MapDryness = cappedFlammability + overCap;
             MapDryness += Rand.Range(-0.5f, 0.5f);
+
+            float totalDryness = Settings.MaxDryness - Settings.MinDryness;
+            float daysToReachMaxDrynessAtTemp = DrynessConstants.daysUntilMaxDrynessForTemperature.Evaluate(averageTemperature) / Settings.EvaporationRateMultiplier;
+            float drynessPerDayAtTemp = totalDryness / daysToReachMaxDrynessAtTemp;
+            DrynessPerDayAtTemp = drynessPerDayAtTemp;
             //Log.Message($"CreatingNewMapDrynessData: {map} initialDryness: {cappedFlammability + overCap} afterRandDryness: {mapDryness} tickOfLastRain: {TickOfLastRain}");
         }
 
@@ -43,6 +50,7 @@ namespace UncompromisingFires
             Scribe_References.Look<Map>(ref Map, "Map");
             Scribe_Values.Look(ref mapDryness, "MapDryness", 0f);
             Scribe_Values.Look(ref TickOfLastRain, "TickOfLastRain", 0);
+            Scribe_Values.Look(ref DrynessPerDayAtTemp, "DrynessPerDayAtTemp", 0f);
             Scribe_Collections.Look(ref daysBetweenEachRainfall, "DaysBetweenEachRainfall", LookMode.Value);
         }
 

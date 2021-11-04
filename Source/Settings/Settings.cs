@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
 namespace UncompromisingFires
 {
-    public class Settings : ModSettings
+    internal class Settings : ModSettings
     {
         public const float MinDryness = 0f;
-        public static float MaxDryness = 3f;
-        public static float IndoorDryness = 3f;
+        public static float MaxDryness;
+        public static float IndoorDryness;
+        public static UIDisplayOptions uiDisplayOption;
 
         public static float EvaporationRateMultiplier;
         private static void Initialize()
@@ -16,12 +18,37 @@ namespace UncompromisingFires
             EvaporationRateMultiplier = 1f;
             MaxDryness = 3f;
             IndoorDryness = 3f;
+            uiDisplayOption = UIDisplayOptions.Standard;
         }
         public override void ExposeData()
         {
             Scribe_Values.Look(ref EvaporationRateMultiplier, "EvaporationRateMultiplier", 1f);
             Scribe_Values.Look(ref MaxDryness, "MaxDryness", 3f);
             Scribe_Values.Look(ref IndoorDryness, "IndoorDryness", 3f);
+            Scribe_Values.Look(ref uiDisplayOption, "uiDisplayOptions", UIDisplayOptions.Standard);
+        }
+        public enum UIDisplayOptions : byte
+        {
+            Standard,
+            Percentage,
+            TooltipOnly,
+            Off
+        }
+        private static string TranslateUIDisplayOptions(UIDisplayOptions mode)
+        {
+            switch (mode)
+            {
+                case UIDisplayOptions.Standard:
+                    return "UncompromisingFires_UIStandard".Translate();
+                case UIDisplayOptions.Percentage:
+                    return "UncompromisingFires_UIPercentage".Translate();
+                case UIDisplayOptions.TooltipOnly:
+                    return "UncompromisingFires_UITooltipOnly".Translate();
+                case UIDisplayOptions.Off:
+                    return "UncompromisingFires_UIOff".Translate();
+                default:
+                    throw new NotImplementedException();
+            }
         }
         public Settings()
         {
@@ -60,7 +87,25 @@ namespace UncompromisingFires
                     Math.Round(curvePoint.y / EvaporationRateMultiplier, 1)));
             }
 
-            listingStandard.Gap(50f);
+            //UI Options Dropdown
+            listingStandard.Gap(40f);
+            if (listingStandard.ButtonTextLabeled("UncompromisingFires_UIOptionsDropdown".Translate() + ":", TranslateUIDisplayOptions(uiDisplayOption)))
+            {
+                List<FloatMenuOption> menuOptions = new List<FloatMenuOption>();
+                foreach (UIDisplayOptions currentOption in Enum.GetValues(typeof(UIDisplayOptions)))
+                {
+                    menuOptions.Add(new FloatMenuOption(TranslateUIDisplayOptions(currentOption), delegate
+                    {
+                        if (uiDisplayOption != currentOption)
+                        {
+                            uiDisplayOption = currentOption;
+                        }
+                    }));
+                }
+                Find.WindowStack.Add(new FloatMenu(menuOptions));
+            }
+
+            listingStandard.Gap(40f);
             if (listingStandard.ButtonText("UncompromisingFires_ResetAll".Translate()))
             {
                 Initialize();

@@ -20,15 +20,25 @@ namespace UncompromisingFires
             return GetMapDrynessData(map).MapDryness;
         }
 
-        public static void SetMapDryness(Map map, float dryness)
+        public static float GetDrynessPerDayAtTemp(Map map)
+        {
+            return GetMapDrynessData(map).DrynessPerDayAtTemp;
+        }
+
+        public static void SetMapDryness(Map map, float dryness, float drynessPerDayAtTemp)
         {
             MapDrynessData mapDrynessData = GetMapDrynessData(map);
             if (dryness == Settings.MinDryness && mapDrynessData.MapDryness != Settings.MinDryness)
             {
                 //Log.Message($"SetMapDryness: It's raining! Old Dryness: {Settings.MakeHumanReadable(mapDrynessData.MapDryness)}% RainfallHistory: {mapDrynessData.DaysBetweenEachRainfall.ToStringSafeEnumerable()}");
                 mapDrynessData.DaysBetweenEachRainfall.Add((int)Math.Round(GenDate.TicksToDays(Find.TickManager.TicksGame - mapDrynessData.TickOfLastRain), MidpointRounding.AwayFromZero));
+                if (mapDrynessData.DaysBetweenEachRainfall.Count > 10)
+                {
+                    mapDrynessData.DaysBetweenEachRainfall.RemoveAt(0);
+                }
             }
             mapDrynessData.MapDryness = dryness;
+            mapDrynessData.DrynessPerDayAtTemp = drynessPerDayAtTemp;
         }
 
         public static void SetDaysSinceLastRain(Map map)

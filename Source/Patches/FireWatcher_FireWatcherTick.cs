@@ -9,8 +9,7 @@ namespace UncompromisingFires
 {
     //Want a much longer delay between updating FireDanger value, 
     //so fires have time to burn instead of immediately raining after one starts
-    [HarmonyPatch(typeof(FireWatcher))]
-    [HarmonyPatch("FireWatcherTick")]
+    [HarmonyPatch(typeof(FireWatcher), "FireWatcherTick")]
     internal static class FireWatcher_FireWatcherTick
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

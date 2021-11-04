@@ -10,10 +10,10 @@
   <UncompromisingFires_GuiIndicatorTooltip>The map dries up over time after rainfall, increasing fire growth and spread on outdoor objects.
   
 The rate at which the map dries up is heavily influenced by the map's temperature and tile average rainfall (general biome humidity).</UncompromisingFires_GuiIndicatorTooltip>
-  <UncompromisingFires_CurrentDrynessTooltip>Current fire growth and spread rate</UncompromisingFires_CurrentDrynessTooltip>
+  <UncompromisingFires_CurrentDrynessTooltip>Current fire growth rate</UncompromisingFires_CurrentDrynessTooltip>
   <UncompromisingFires_IncreasePerDayTooltip>Increase per day</UncompromisingFires_IncreasePerDayTooltip>
   <UncompromisingFires_DaysSinceLastRainTooltip>days since last rainfall</UncompromisingFires_DaysSinceLastRainTooltip>
-  <UncompromisingFires_AverageDaysUntilRainfallTooltip>days on average between rainfall on this map</UncompromisingFires_AverageDaysUntilRainfallTooltip>
+  <UncompromisingFires_AverageDaysUntilRainfallTooltip>days average between rainfall</UncompromisingFires_AverageDaysUntilRainfallTooltip>
   <UncompromisingFires_IndoorDryness>Indoor Fire Spread and Growth Rate</UncompromisingFires_IndoorDryness>
   <UncompromisingFires_MaxDryness>Maximum Outdoor Fire Spread and Growth Rate</UncompromisingFires_MaxDryness>
   <UncompromisingFires_SettingsDescription>The map dries up over time after rainfall, increasing fire growth and spread on outdoor objects.
@@ -21,5 +21,10 @@ The rate at which the map dries up is heavily influenced by the map's temperatur
   <UncompromisingFires_EvaporationRateMultiplier>Evaporation Rate Multiplier</UncompromisingFires_EvaporationRateMultiplier>
   <UncompromisingFires_EvaporationRateMultiplierDesc>Predicted time for a map to fully dry out (will be longer on tiles with high rainfall):</UncompromisingFires_EvaporationRateMultiplierDesc>
   <UncompromisingFires_EvaporationRatePredictions>{0}°C/{1}°F = {2} days</UncompromisingFires_EvaporationRatePredictions>  
+  <UncompromisingFires_UIOptionsDropdown>UI Indicator</UncompromisingFires_UIOptionsDropdown>
+  <UncompromisingFires_UIStandard>Standard</UncompromisingFires_UIStandard>
+  <UncompromisingFires_UIPercentage>Percentage</UncompromisingFires_UIPercentage>
+  <UncompromisingFires_UITooltipOnly>Tooltip only</UncompromisingFires_UITooltipOnly>
+  <UncompromisingFires_UIOff>Off</UncompromisingFires_UIOff>
   <UncompromisingFires_ResetAll>Reset All</UncompromisingFires_ResetAll>
 </LanguageData>

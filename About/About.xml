@@ -25,6 +25,8 @@ While this mod may seem complicated, it actually only needs to modify two values
 *NOT Compatible with CE. They change fires to scale based on their own "wind speed and direction" system.
 *No other known conflicts.
 
+~1.1 update: Improved the dryness GUI, and added options to customize it (such as a percentage view).
+
 ~1.01 update: Increased outdoor evaporation rate by 33%.
 
 Github Link: https://github.com/tenguin/Rimworld_UncompromisingFires

@@ -6,7 +6,7 @@ namespace UncompromisingFires
 {
 	//A data storage object tied to the currently generated world
 	//Used to track and save map dryness data for all the active maps in the world
-    public class WorldStorageComponent : WorldComponent
+	internal class WorldStorageComponent : WorldComponent
 	{
 		internal Dictionary<int, MapDrynessData> MapDrynessDataDictionary = new Dictionary<int, MapDrynessData>(); 
 

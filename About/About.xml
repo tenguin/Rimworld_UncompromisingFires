@@ -22,6 +22,7 @@ While this mod may seem complicated, it actually only needs to modify two values
 *Optimized for performance.
 *Safe to add mid-game.
 *Safe to remove mid-game (One-time error message is harmless).
+*Compatible with Scattered Flames by Owlchemist.
 *NOT Compatible with CE. They change fires to scale based on their own "wind speed and direction" system.
 *No other known conflicts.
 

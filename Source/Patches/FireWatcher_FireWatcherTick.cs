@@ -22,7 +22,7 @@ namespace UncompromisingFires
                     int ticksBetweenOperation = (int)codes[i].operand;
                     if (ticksBetweenOperation == 426)
                     {
-                        codes[i].operand = 15000;
+                        codes[i].operand = 60000;
                     }
                     else
                     {

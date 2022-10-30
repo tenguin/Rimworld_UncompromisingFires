@@ -6,7 +6,7 @@
 	<description>
 The goal of this mod is to make fires more interesting and dynamic!
 
-For indoor fires, fires will grow and spread 3x faster (value adjustable in the options), which makes designing a base capable of containing indoor fires (such as with fire breaks, fire proof materials, and fire extinguishing tools) a more important consideration.
+For indoor fires, fires will grow and spread 3x faster (value adjustable in the options), which makes designing a base capable of containing indoor fires (such as with fire proof materials and fire extinguishing tools) a more important consideration.
 
 For outdoor fires, fire growth and spread will scale depending on a new value called "Map dryness".
 
@@ -16,18 +16,21 @@ Because the rate at which the map dries depends on the temperature, summer will 
 
 Jungle and swamp biomes will behave more realistically, no longer igniting into massive forest fires due to their high rainfall. While boreal, tundra, and the ice caps will behave more realistically too, where the low temperature means the wetness stays high despite low rainfall. But watch out if it's a scorching hot desert during a heat wave! (Evaporation rate adjustable in the options).
 
-Compatibility:
-While this mod may seem complicated, it actually only needs to modify two values from the vanilla game; Fire growth per tick and Ticks until next fire spread. All the other calculations are isolated from the game code and only relies on vanilla stats like current temperature and rainfall, so it should have excellent compatibility and will leave no permanent changes to your game state (Can be safely added and removed mid-game).
+Also adjusts the vanilla "Firewatcher" to not trigger so aggressively, allowing time for forest fires to naturally burn instead of nearly always triggering a rain upon any fire.
 
-*Optimized for performance.
+Compatibility:
+While this mod may seem complicated, it actually only needs to modify two values from the vanilla game; Fire growth per tick and Ticks until next fire spread. All the other calculations are independent from the game code and only relies on vanilla stats like current temperature and rainfall, so it should have excellent compatibility and will leave no permanent changes to your game state (Can be safely added and removed mid-game).
+
+*Highly optimized for near 0% performance impact (0.001ms average in Dub's Performance Analyzer).
 *Safe to add mid-game.
 *Safe to remove mid-game (One-time error message is harmless).
-*Compatible with Scattered Flames by Owlchemist.
+*Confirmed compatible with Vanilla Expanded series, Alpha series, and Humanoid Alien Races.
 *NOT Compatible with CE. They change fires to scale based on their own "wind speed and direction" system.
-*No other known conflicts.
+*No other known incompatibilities.
 
+(Steam workshop can be slow/janky at detecting updated mods. If the mod doesn't update, unsubscribe, wait a few seconds, and resubscribe to force it to download the latest files)
+~2.0 update: Now compatible with 1.4! Greatly increased the time the Firewatcher will wait before triggering.
 ~1.1 update: Improved the dryness GUI, and added options to customize it (such as a percentage view).
-
 ~1.01 update: Increased outdoor evaporation rate by 33%.
 
 Github Link: https://github.com/tenguin/Rimworld_UncompromisingFires
@@ -35,7 +38,8 @@ Github Link: https://github.com/tenguin/Rimworld_UncompromisingFires
 Credits to: Walfieee, _LM7_, Amelia Watson, and unknown artist for the artwork used in the thumbnail and tanosii_chan for the upvote animation! Give them a visit!
   </description>
 	<supportedVersions>
-      <li>1.3</li>
+    <li>1.3</li>
+    <li>1.4</li>
   </supportedVersions>
   <modDependencies>
 		<li>
@@ -49,6 +53,7 @@ Credits to: Walfieee, _LM7_, Amelia Watson, and unknown artist for the artwork u
     <li>Ludeon.RimWorld</li>
     <li>Ludeon.RimWorld.Royalty</li>
     <li>Ludeon.RimWorld.Ideology</li>
+    <li>Ludeon.RimWorld.Biotech</li>
     <li>brrainz.harmony</li>
   </loadAfter>	
 </ModMetaData>

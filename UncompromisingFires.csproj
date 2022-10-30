@@ -17,24 +17,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>1.3\Assemblies\</OutputPath>
+    <OutputPath>1.4\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>1.3\Assemblies\UncompromisingFires.xml</DocumentationFile>
+    <DocumentationFile>1.4\Assemblies\UncompromisingFires.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>1.3\Assemblies\</OutputPath>
+    <OutputPath>1.4\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>1.3\Assemblies\UncompromisingFires.xml</DocumentationFile>
+    <DocumentationFile>1.4\Assemblies\UncompromisingFires.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Lib.Harmony.2.1.1\lib\net472\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Lib.Harmony.2.2.2\lib\net472\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -67,7 +67,6 @@
     <Compile Include="Source\Data\Data Objects\MapDrynessData.cs" />
     <Compile Include="Source\Data\Data Objects\WorldStorageComponent.cs" />
     <Compile Include="Source\Patches\FireWatcher_FireWatcherTick.cs" />
-    <None Include="packages.config" />
     <Compile Include="Source\Patches\WeatherManager_DoWeatherGUI.cs" />
     <Compile Include="Source\Patches\WeatherManager_WeatherManagerTick.cs" />
     <Compile Include="Source\Patches\Fire_Spread.cs" />
@@ -78,11 +77,17 @@
   <ItemGroup>
     <Content Include="1.3\Assemblies\UncompromisingFires.dll" />
     <Content Include="1.3\Assemblies\UncompromisingFires.pdb" />
-    <Content Include="1.3\Languages\English\Keyed\TranslationKeys.xml" />
+    <Content Include="Common\Languages\English\Keyed\TranslationKeys.xml" />
+    <Content Include="1.4\Assemblies\UncompromisingFires.dll" />
+    <Content Include="1.4\Assemblies\UncompromisingFires.pdb" />
+    <Content Include="1.4\Assemblies\UncompromisingFires.xml" />
     <Content Include="About\About.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"W:\Rimworld Modding Ideology\!MOD TRANSFER.bat"</PostBuildEvent>
+    <PostBuildEvent>"R:\Rimworld Modding Biotech\!MOD TRANSFER.bat"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -10,21 +10,27 @@ namespace UncompromisingFires
         public const float MinDryness = 0f;
         public static float MaxDryness;
         public static float IndoorDryness;
+        public static int FireWatcherTick;
+        public static int SeasonalShift;
         public static UIDisplayOptions uiDisplayOption;
 
         public static float EvaporationRateMultiplier;
         private static void Initialize()
         {
             EvaporationRateMultiplier = 1f;
-            MaxDryness = 3f;
-            IndoorDryness = 3f;
+            MaxDryness = 2f;
+            IndoorDryness = 2f;
+            FireWatcherTick = 30000;
+            SeasonalShift = 0;
             uiDisplayOption = UIDisplayOptions.Standard;
         }
         public override void ExposeData()
         {
             Scribe_Values.Look(ref EvaporationRateMultiplier, "EvaporationRateMultiplier", 1f);
-            Scribe_Values.Look(ref MaxDryness, "MaxDryness", 3f);
-            Scribe_Values.Look(ref IndoorDryness, "IndoorDryness", 3f);
+            Scribe_Values.Look(ref MaxDryness, "MaxDryness", 2f);
+            Scribe_Values.Look(ref IndoorDryness, "IndoorDryness", 2f);
+            Scribe_Values.Look(ref FireWatcherTick, "FireWatcherTick", 30000);
+            Scribe_Values.Look(ref SeasonalShift, "SeasonalShift", 0);
             Scribe_Values.Look(ref uiDisplayOption, "uiDisplayOptions", UIDisplayOptions.Standard);
         }
         public enum UIDisplayOptions : byte
@@ -65,20 +71,28 @@ namespace UncompromisingFires
 
             //Indoor dryness
             listingStandard.Label("UncompromisingFires_IndoorDryness".Translate() + ": " + MakeHumanReadable(IndoorDryness) + "%");
-            IndoorDryness = listingStandard.Slider(IndoorDryness, 0.5f, 6f);
+            IndoorDryness = (float)Math.Round(listingStandard.Slider(IndoorDryness, 0.5f, 6f), 1, MidpointRounding.AwayFromZero);
 
             //Max dryness
             listingStandard.Label("UncompromisingFires_MaxDryness".Translate() + ": " + MakeHumanReadable(MaxDryness) + "%");
-            MaxDryness = listingStandard.Slider(MaxDryness, 0.5f, 6f);
+            MaxDryness = (float)Math.Round(listingStandard.Slider(MaxDryness, 0.5f, 6f), 1, MidpointRounding.AwayFromZero);
+
+            //Firewatcher ticks
+            listingStandard.Label("UncompromisingFires_Firewatcher".Translate() + ": " + (float)Math.Round(FireWatcherTick / 60000f, 1, MidpointRounding.AwayFromZero) + " days", -1f, "UncompromisingFires_FirewatcherDesc".Translate());
+            FireWatcherTick = (int)listingStandard.Slider(FireWatcherTick, 2500, 600000);
+
+            //Seasonal Shift
+            listingStandard.Label("UncompromisingFires_SeasonalShift".Translate() + ": " + SeasonalShift + "°C");
+            SeasonalShift = (int)listingStandard.Slider(SeasonalShift, 0, 50);
 
             //Evaporation Multiplier
-            listingStandard.Gap(30f);
+           // listingStandard.Gap(5f);
             listingStandard.Label("UncompromisingFires_SettingsDescription".Translate());
             listingStandard.Label("UncompromisingFires_EvaporationRateMultiplier".Translate() + ": " + Mathf.RoundToInt(EvaporationRateMultiplier * 100f) + "%", -1f, "UncompromisingFires_EvaporationRateMultiplierDesc".Translate());
-            EvaporationRateMultiplier = listingStandard.Slider(EvaporationRateMultiplier, 0.1f, 6f);
-            listingStandard.Gap(15f);
+            EvaporationRateMultiplier = listingStandard.Slider(EvaporationRateMultiplier, 0.1f, 5f);
+            listingStandard.Gap(5f);
             listingStandard.Label("UncompromisingFires_EvaporationRateMultiplierDesc".Translate());
-            listingStandard.Gap(15f);
+            listingStandard.Gap(5f);
             foreach (CurvePoint curvePoint in DrynessConstants.daysUntilMaxDrynessForTemperature)
             {
                 listingStandard.Label("     " + "UncompromisingFires_EvaporationRatePredictions".Translate(
@@ -88,7 +102,7 @@ namespace UncompromisingFires
             }
 
             //UI Options Dropdown
-            listingStandard.Gap(40f);
+            listingStandard.Gap(5f);
             if (listingStandard.ButtonTextLabeled("UncompromisingFires_UIOptionsDropdown".Translate() + ":", TranslateUIDisplayOptions(uiDisplayOption)))
             {
                 List<FloatMenuOption> menuOptions = new List<FloatMenuOption>();
@@ -105,7 +119,7 @@ namespace UncompromisingFires
                 Find.WindowStack.Add(new FloatMenu(menuOptions));
             }
 
-            listingStandard.Gap(40f);
+            listingStandard.Gap(5f);
             if (listingStandard.ButtonText("UncompromisingFires_ResetAll".Translate()))
             {
                 Initialize();

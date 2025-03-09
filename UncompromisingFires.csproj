@@ -17,24 +17,26 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>1.4\Assemblies\</OutputPath>
+    <OutputPath>1.5\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>1.4\Assemblies\UncompromisingFires.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>1.4\Assemblies\</OutputPath>
+    <OutputPath>1.5\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>1.4\Assemblies\UncompromisingFires.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Lib.Harmony.2.2.2\lib\net472\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Lib.Harmony.2.3.3\lib\net472\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -67,6 +69,7 @@
     <Compile Include="Source\Data\Data Objects\MapDrynessData.cs" />
     <Compile Include="Source\Data\Data Objects\WorldStorageComponent.cs" />
     <Compile Include="Source\Patches\FireWatcher_FireWatcherTick.cs" />
+    <Compile Include="Source\Patches\GenTemperature_SeasonalShiftAmplitudeAt.cs" />
     <Compile Include="Source\Patches\WeatherManager_DoWeatherGUI.cs" />
     <Compile Include="Source\Patches\WeatherManager_WeatherManagerTick.cs" />
     <Compile Include="Source\Patches\Fire_Spread.cs" />
@@ -84,10 +87,13 @@
     <Content Include="About\About.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="1.5\Assemblies\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"R:\Rimworld Modding Biotech\!MOD TRANSFER.bat"</PostBuildEvent>
+    <PostBuildEvent>"R:\Rimworld Modding Anomaly\!MOD TRANSFER.bat"</PostBuildEvent>
   </PropertyGroup>
 </Project>

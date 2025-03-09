@@ -32,11 +32,11 @@ namespace UncompromisingFires
 		//Second value: How many days after a rain until the map reaches max dryness
 		public static readonly SimpleCurve daysUntilMaxDrynessForTemperature = new SimpleCurve
 		{
-			new CurvePoint(-20f, 60f),
-			new CurvePoint(0f, 30f),
-			new CurvePoint(20f, 15f),
-			new CurvePoint(40f, 7.5f),
-			new CurvePoint(60f, 3.75f)
+			new CurvePoint(-20f, 80f),
+			new CurvePoint(0f, 40f),
+			new CurvePoint(20f, 20f),
+			new CurvePoint(40f, 10f),
+			new CurvePoint(60f, 5f)
 		};
 
 		//When map dryness approaches or goes over the drynessCapFromRainfall, slow the dryness increase by this value

@@ -9,8 +9,8 @@ namespace UncompromisingFires
         public UncompromisingFires(ModContentPack content) : base(content)
         {
             Harmony harmony = new Harmony(content.PackageId);
-            harmony.PatchAll();
             GetSettings<Settings>();
+            harmony.PatchAll();
         }
 
         public override string SettingsCategory()

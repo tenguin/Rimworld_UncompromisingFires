@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <UncompromisingFires_Title>Fuu's Uncompromising Fires</UncompromisingFires_Title>
+  <UncompromisingFires_Title>Uncompromising Fires</UncompromisingFires_Title>
   <UncompromisingFires_NoDryness>Wet</UncompromisingFires_NoDryness>
   <UncompromisingFires_LowDryness>Humid</UncompromisingFires_LowDryness>
   <UncompromisingFires_ModerateDryness>Fair</UncompromisingFires_ModerateDryness>
@@ -16,6 +16,9 @@ The rate at which the map dries up is heavily influenced by the map's temperatur
   <UncompromisingFires_AverageDaysUntilRainfallTooltip>days average between rainfall</UncompromisingFires_AverageDaysUntilRainfallTooltip>
   <UncompromisingFires_IndoorDryness>Indoor Fire Spread and Growth Rate</UncompromisingFires_IndoorDryness>
   <UncompromisingFires_MaxDryness>Maximum Outdoor Fire Spread and Growth Rate</UncompromisingFires_MaxDryness>
+  <UncompromisingFires_Firewatcher>Maximum Time Until Firewatcher Triggers (Requires restart)</UncompromisingFires_Firewatcher>
+  <UncompromisingFires_SeasonalShift>Seasonal Extremes (Increase the temperature difference between the coldest winter and hottest summer)\n(Warning: Can cause hypo/hyperthermic animals/visitors)</UncompromisingFires_SeasonalShift>
+  <UncompromisingFires_FirewatcherDesc>During large fires, the firewatcher will trigger a rain within a randomized delay between 0 and the maximum. This setting allows the maximum delay to be adjusted.</UncompromisingFires_FirewatcherDesc>
   <UncompromisingFires_SettingsDescription>The map dries up over time after rainfall, increasing fire growth and spread on outdoor objects.
 The rate at which the map dries up is heavily influenced by the map's temperature and tile average rainfall (general biome humidity).</UncompromisingFires_SettingsDescription>
   <UncompromisingFires_EvaporationRateMultiplier>Evaporation Rate Multiplier</UncompromisingFires_EvaporationRateMultiplier>

@@ -33,6 +33,7 @@ Compatibility
 *NOT compatible with Combat Extended however, because they replace vanilla's fire system with their own "wind speed and direction" system.
 		
 Updates
+~3.2 update: Fixed where vanilla game forced a firewatcher update on game load, which bypassed the firewatcher time set in the options and caused immediate rain if a game was saved and loaded during a large fire.
 ~3.1 update: New Seasonal Extremeness slider in the options! Can now increase the temperature difference between the coldest winter and hottest summer by a configurable degree in the mod options. Snow in the rainforest? Now you can!
 ~3.0 update: Now compatible with 1.5! Firewatcher time is now configurable in the options, and triggers sooner than before. Default max fire rate is 200% for both indoor and outdoor, due to proliferation of fire weapons since Biology.
 ~2.01 update: Reduced default maximum fire rate to 2x due to all the new fire weapons in 1.4 making big fires more dangerous (Existing users need to change this manually in the options).
